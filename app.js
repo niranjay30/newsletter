@@ -76,14 +76,3 @@ app.post("/failure", function(req, res){
 app.listen(process.env.PORT || 3000, function(){
   console.log("Sever is running on port 3000");
 });
-
-
-
-
-
-
-
-
-
-// API: b984801cf5fea3053623a4658e065116-us17
-// List ID: fcd17606be
