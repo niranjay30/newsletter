@@ -1,5 +1,6 @@
 //jshint esversion:6
 
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https');
@@ -35,11 +36,11 @@ app.post("/", function(req, res){
 
   const jsonData = JSON.stringify(data);
 
-  const url = "https://us17.api.mailchimp.com/3.0/lists/fcd17606be";
+  const url = "https://us17.api.mailchimp.com/3.0/lists/" + process.env.LISTID;
 
   const options = {
     method: "POST",
-    auth: "niranjay1:b984801cf5fea3053623a4658e065116-us17"
+    auth: "niranjay1:" + process.env.API
   };
 
   const request = https.request(url, options, function(response){
@@ -76,3 +77,14 @@ app.post("/failure", function(req, res){
 app.listen(process.env.PORT || 3000, function(){
   console.log("Sever is running on port 3000");
 });
+
+
+
+
+
+
+
+
+
+// API: b984801cf5fea3053623a4658e065116-us17
+// List ID: fcd17606be
